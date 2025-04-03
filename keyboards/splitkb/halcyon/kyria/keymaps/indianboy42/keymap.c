@@ -404,15 +404,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_SYM] = LAYOUT_split_3x6_5_hlc(
      KC_GRV,  KC_TILD, KC_PLUS, KC_EXLM, KC_LT,   KC_GT,                                       KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_BSPC,
-     KC_RPRN, KC_LBRC, KC_ASTR, KC_PIPE, KC_EQL,  KC_ARRW,                                     UNASSIN, KC_DQUO, KC_QUES, KC_BSLS, KC_COLN, KC_MINS,
-     KC_RCBR, KC_PERC, UNASSIN, KC_HASH, KC_AMPR, KC_AT,   _______, _______, _______, _______, KC_0,    KC_6,    KC_7,    KC_8,    KC_9,    TH_DQUO,
+     KC_RPRN, KC_LBRC, KC_ASTR, KC_PIPE, KC_EQL,  KC_ARRW,                                     KC_DLR,  KC_DQUO, KC_QUES, KC_BSLS, KC_COLN, KC_MINS,
+     KC_RCBR, KC_CIRC, KC_PERC, KC_HASH, KC_AMPR, KC_AT,   _______, _______, _______, _______, KC_0,    KC_6,    KC_7,    KC_8,    KC_9,    TH_DQUO,
                                 _______, _______, _______, _______, _______, _______, KC_SPC,  _______, _______, _______,
      _______, _______,  _______, _______, _______,                                                       _______, _______, _______, _______, _______
     ),
 
     [_SYMR] = LAYOUT_split_3x6_5_hlc(
      KC_GRV,  KC_TILD, KC_PLUS, KC_EXLM, KC_LT,   KC_GT,                                       KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_BSPC,
-     KC_RPRN, KC_LBRC, KC_ASTR, KC_PIPE, KC_EQL,  KC_ARRW,                                     UNASSIN, KC_DQUO, KC_QUES, KC_BSLS, KC_COLN, KC_MINS,
+     KC_RPRN, KC_LBRC, KC_ASTR, KC_PIPE, KC_EQL,  KC_ARRW,                                     KC_DLR,  KC_DQUO, KC_QUES, KC_BSLS, KC_COLN, KC_MINS,
      KC_RCBR, KC_PERC, UNASSIN, KC_HASH, KC_AMPR, KC_AT,   _______, _______, _______, _______, KC_0,    KC_6,    KC_7,    KC_8,    KC_9,    TH_DQUO,
                                 _______, _______, _______, KC_SPC,  _______, _______, _______, _______, _______, _______,
      _______, _______,  _______, _______, _______,                                                       _______, _______, _______, _______, _______
@@ -469,7 +469,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // TODO: more over here
     [_NAV] = LAYOUT_split_3x6_5_hlc(
-     _____,   UNASSIN, CC_RIGHT,UNASSIN, KC_REDO, UNASSIN,                                     KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_MENU, _______,
+     _____,   UNASSIN, CC_RIGHT,UNASSIN, KC_REDO, UNASSIN,                                     KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_PSCR, _______,
      _____,   KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_CSA,                                      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_TAB,  _______,
      _____,   KC_UNDO, AL_LEFT, AL_RGHT, KC_INS,  CC_LEFT, _______, _______, _______, _______, KC_BSPC, CC_BSPC, CC_DEL,  KC_DEL,  KC_ENT,  FKEYS,
                                 _______, _______, _______, KC_SPC,  _______, _______, _______, _______, _______, _______,
