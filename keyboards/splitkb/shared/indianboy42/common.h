@@ -39,6 +39,7 @@ enum layers {
 // Common defines and aliases
 #define CSA(A) MEH(A)
 #define UNASSIN KC_TRNS
+#define UNUSABL KC_TRNS
 #define _ KC_TRNS
 #define __ KC_TRNS
 #define ___ KC_TRNS
@@ -48,6 +49,7 @@ enum layers {
 #define _______ KC_TRNS
 #define LCS(...) LCTL(LSFT(__VA_ARGS__))
 #define LCG(...) LCTL(LGUI(__VA_ARGS__))
+#define MOD_CSA MOD_LCTL | MOD_LSFT | MOD_LALT
 #define KC_LCS C_S_T(OSM(MOD_LCTL | MOD_LSFT))
 #define KC_LCA LCA(KC_NO)
 #define KC_LSA LSA(KC_NO)
@@ -62,6 +64,10 @@ enum layers {
 
 #define KC_ERRW LSFT(KC_ARRW)
 
+#define LCA_ENT LCA(KC_ENT)
+#define LCS_DEL LCS(KC_DEL)
+#define LCS_BSP LCS(KC_BSP)
+
 // Layer switching aliases
 #define QWERTY DF(_QWERTY)
 #define HANDDWN DF(_HANDDOWNN)
@@ -74,6 +80,12 @@ enum layers {
 #define NUM MO(_NUM)
 #define NAV MO(_NAV)
 #define FKEYS MO(_FUNCTION)
+
+#define OS_LGUI OSM(MOD_LGUI)
+#define OS_LCTL OSM(MOD_LCTL)
+#define OS_LSFT OSM(MOD_LSFT)
+#define OS_LALT OSM(MOD_LALT)
+#define OS_CSA OSM(MOD_CSA)
 
 // Control combinations
 #define CC_LEFT LCTL(KC_LEFT)
@@ -98,8 +110,8 @@ enum layers {
 #define CTL_SPC MT(MOD_LCTL, KC_SPC)
 #define CTL_DEL MT(MOD_LCTL, KC_DEL)
 #define CST_ESC MT(MOD_LCTL | MOD_LSFT, KC_ESC)
-#define CTL_QUOT MT(MOD_RCTL, KC_QUOTE)
-#define CTL_MINS MT(MOD_RCTL, KC_MINUS)
+#define CTL_QUO MT(MOD_LCTL, KC_QUOTE)
+#define CTL_MIN MT(MOD_LCTL, KC_MINUS)
 #define ALT_ESC MT(MOD_LALT, KC_ESC)
 #define ALT_DEL MT(MOD_LALT, KC_DEL)
 #define ALT_BSP MT(MOD_LALT, KC_BSPC)
@@ -114,6 +126,7 @@ enum layers {
 #define GUI_ENT MT(MOD_LGUI, KC_ENT)
 #define GUI_TAB MT(MOD_LGUI, KC_TAB)
 #define GUI_BSP MT(MOD_LGUI, KC_BSPC)
+#define GUI_SPC MT(MOD_LGUI, KC_SPC)
 #define SFT_ENT MT(MOD_LSFT, KC_ENT)
 #define SFT_TAB MT(MOD_LSFT, KC_TAB)
 #define SFT_SPC MT(MOD_LSFT, KC_SPC)
@@ -138,16 +151,18 @@ enum layers {
 #define NAV_DEL LT(_NAV, KC_DEL)
 #define NAV_BSP LT(_NAV, KC_BSPC)
 #define SYM_R LT(_SYM, KC_R)
-#define SYM_SP LT(_SYM, KC_SPC)
+#define SYM_SPC LT(_SYM, KC_SPC)
+#define SYM_BSP LT(_SYM, KC_BSPC)
 #define SYM_DEL LT(_SYM, KC_DEL)
 #define SYM_FL LT(_SYM, FOLLOW)
 #define SYMR_R LT(_SYMR, KC_R)
 #define SYMR_SP LT(_SYMR, KC_SPC)
 #define SYMR_FL LT(_SYMR, FOLLOW)
-#define CSA_ESC MT(MOD_LCTL | MOD_LSFT | MOD_LALT, KC_ESC)
-#define CSA_BSP MT(MOD_LCTL | MOD_LSFT | MOD_LALT, KC_BSPC)
-#define CSA_ENT MT(MOD_LCTL | MOD_LSFT | MOD_LALT, KC_ENT)
-#define CSA_DEL MT(MOD_LCTL | MOD_LSFT | MOD_LALT, KC_DEL)
+#define CSA_ESC MT(MOD_CSA, KC_ESC)
+#define CSA_BSP MT(MOD_CSA, KC_BSPC)
+#define CSA_ENT MT(MOD_CSA, KC_ENT)
+#define CSA_DEL MT(MOD_CSA, KC_DEL)
+#define CSA_F2 MT(MOD_CSA, KC_F2)
 
 // Common key combinations
 #define KC_COPY LCTL(KC_C)
@@ -156,6 +171,7 @@ enum layers {
 #define KC_UNDO LCTL(KC_Z)
 #define KC_REDO LCTL(LSFT(KC_Z))
 #define FUN_F1 LT(_FUNCTION, KC_F1)
+#define FUN_BSP LT(_FUNCTION, KC_BSPC)
 
 // Home row mods
 #define GU_A MT(MOD_LGUI, KC_A)
@@ -170,6 +186,3 @@ enum layers {
 #define AL_I MT(MOD_LALT, KC_I)
 #define CT_E MT(MOD_LCTL, KC_E)
 #define NV_A LT(_NAV, KC_A)
-
-// Tap dance helper
-#define TTKC(KC, HOLD) LT(0, KC)

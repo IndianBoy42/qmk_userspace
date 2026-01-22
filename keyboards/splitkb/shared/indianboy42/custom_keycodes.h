@@ -47,48 +47,76 @@ enum custom_keycodes {
     LR_QUO,
     LR_DQU,
     LR_GRV,
-    // TODO: magic key for closing brackets/parens?
-    KR_PRN, // Sends R and move the cursor left (inside)
+    KR_PRN, // Sends ) and move the cursor left (inside)
     KR_CBR,
     KR_BRC,
     KR_TRI,
     KR_QUO,
     KR_DQU,
     KR_GRV,
+    // TODO: magic key for closing brackets/parens?
     FOLLOW,
 };
 
 // Key override definitions
+#define C_SHIFT_(X, N, A, B) X(shift_##N##_##B, ko_make_basic(MOD_MASK_SHIFT, A, B))
 #define C_SHIFT(X, A, B) X(shift_##A##_##B, ko_make_basic(MOD_MASK_SHIFT, A, B))
+#define C_SHIFT_DIS(X, A, B)
 #define C_ALT(X, A, B) X(alt_##A##_##B, ko_make_basic(MOD_MASK_ALT, A, B))
-#define KEY_OVERRIDE_TABLE(X)    \
-    C_SHIFT(X, KC_UNDS, KC_MINS) \
-    C_SHIFT(X, KC_EQL, KC_ASTR)  \
-    C_SHIFT(X, KC_DOT, KC_AT)    \
-    C_SHIFT(X, KC_COMM, KC_PERC) \
-    C_SHIFT(X, KC_MINS, KC_PLUS) \
-    C_SHIFT(X, KC_LPRN, KC_RPRN) \
-    C_SHIFT(X, KC_LCBR, KC_RCBR) \
-    C_SHIFT(X, KC_LBRC, KC_RBRC) \
-    C_SHIFT(X, KC_RPRN, KC_LPRN) \
-    C_SHIFT(X, KC_RCBR, KC_LCBR) \
-    C_SHIFT(X, KC_RBRC, KC_LBRC) \
-    C_ALT(X, KC_BSPC, KC_DEL)    \
+#define KEY_OVERRIDE_TABLE(X)                   \
+    C_SHIFT(X, KC_UNDS, KC_MINS)                \
+    C_SHIFT(X, KC_SLSH, KC_BSLS)                \
+    C_SHIFT(X, KC_COMM, KC_AMPR)                \
+    C_SHIFT(X, KC_DOT, KC_EXLM)                 \
+    C_SHIFT(X, KC_EQL, KC_ASTR)                 \
+    C_SHIFT(X, KC_LPRN, KC_RPRN)                \
+    C_SHIFT(X, KC_LCBR, KC_RCBR)                \
+    C_SHIFT(X, KC_LBRC, KC_RBRC)                \
+    C_SHIFT_(X, TH_LPRN, TD(_TH_LPRN), KC_RPRN) \
+    C_SHIFT_(X, TH_LCBR, TD(_TH_LCBR), KC_RCBR) \
+    C_SHIFT_(X, TH_LBRC, TD(_TH_LBRC), KC_RBRC) \
+    C_SHIFT(X, KC_RPRN, KC_LPRN)                \
+    C_SHIFT(X, KC_RCBR, KC_LCBR)                \
+    C_SHIFT(X, KC_RBRC, KC_LBRC)                \
+    C_SHIFT(X, KC_MINS, KC_PLUS)                \
+    C_ALT(X, KC_BSPC, KC_DEL)                   \
     C_SHIFT(X, KC_QU, KC_Qu)
 #define X_DEF(A, B) const key_override_t A = B;
 #define X_LIST(A, B) &A,
 
 // Combo definitions
+#define COMBOS_HR_MOD(X)       \
+    X(28, KC_A, KC_S, OS_LCTL) \
+    X(29, KC_S, KC_D, OS_LALT) \
+    X(30, KC_D, KC_F, GUI_SPC) \
+    X(35, KC_J, KC_K, GUI_ESC) \
+    X(34, KC_K, KC_L, OS_LALT) \
+    X(37, KC_L, KC_SCLN, OS_LCTL)
+#define COMBOS_HR_SYM(X)            \
+    X(28, KC_A, KC_S, KC_ASTR)      \
+    X(29, KC_S, KC_D, KC_AMPR)      \
+    X(30, KC_D, KC_F, KC_EQL)       \
+    X(35, KC_J, KC_K, KC_DQUO)      \
+    X(34, KC_K, KC_L, KC_QUES)      \
+    X(37, KC_L, KC_SCLN, KC_BSLS)   \
+    X(31, KC_DOT, KC_SLSH, KC_EXLM) \
+    X(32, KC_DOT, KC_COMM, KC_TILD) \
+    X(33, KC_M, KC_COMM, KC_DLR)    \
+    X(10, KC_C, KC_V, KC_CIRC)      \
+    X(11, KC_X, KC_C, KC_HASH)      \
+    X(11, KC_X, KC_Z, KC_PERC)
 #define COMBOS_TABLE(X)             \
-    X(23, KC_LPRN, KC_A, LR_PRN)    \
-    X(25, KC_LCBR, KC_Z, LR_CBR)    \
-    X(26, KC_LBRC, KC_RBRC, LR_BRC) \
-    X(27, KC_LT, KC_GT, LR_TRI)     \
-    X(29, KC_SLSH, KC_QUOT, LR_QUO) \
-    X(31, KC_QUES, KC_DQUO, LR_DQU) \
-    X(35, KC_A, KC_S, KC_LGUI)      \
-    X(37, KC_L, KC_SCLN, KC_LGUI)   \
-    X(38, KC_EQL, KC_ARRW, LSFT(KC_ARRW))
+    X(14, TH_LPRN, KC_A, LR_PRN)    \
+    X(16, TH_LCBR, KC_Z, LR_CBR)    \
+    X(17, TH_LBRC, KC_Q, LR_BRC)    \
+    X(18, KC_LPRN, KC_A, LR_PRN)    \
+    X(20, KC_LCBR, KC_Z, LR_CBR)    \
+    X(21, KC_LBRC, KC_Q, LR_BRC)    \
+    X(22, KC_LT, KC_GT, LR_TRI)     \
+    X(24, KC_SLSH, KC_QUOT, LR_QUO) \
+    X(26, KC_QUES, KC_DQUO, LR_DQU) \
+    COMBOS_HR_MOD(X)
+// X(39, KC_LGUI, KC_CSA, FKEYS)
 
 // Macro definitions for custom_keys function
 #define KC_MACRO(KC, STR)            \
@@ -127,12 +155,6 @@ enum custom_keycodes {
     case KC1:                                     \
         if (last_keycode == KC0) tap_code16(KC2); \
         break;
-
-// Key overrides for kyria
-KEY_OVERRIDE_TABLE(X_DEF)
-const key_override_t *key_overrides[] = {
-    KEY_OVERRIDE_TABLE(X_LIST) NULL // Null terminate the array of overrides!
-};
 
 // Tapping term adjustments
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {

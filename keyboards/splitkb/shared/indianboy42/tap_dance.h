@@ -83,7 +83,7 @@ void tap_dance_multi_reset(tap_dance_state_t *state, void *user_data) {
 #define X_NAME(N, ...) N
 #define X__ENUM(...) X__NAME(__VA_ARGS__),
 #define X_ENUM(...) X_NAME(__VA_ARGS__) = TD(X__NAME(__VA_ARGS__)),
-enum { TAP_DANCE_TABLE(X__ENUM) TAP_DANCE_TABLE(X_ENUM) };
+enum { TAP_DANCE_TABLE(X__ENUM) };
 #define NOP(...)
 #define TAP_DANCE_ARR(N, F, G, ...) [X__NAME(N)] = F(N, __VA_ARGS__),
 #define TAP_DANCE_FN(N, F, G, ...) G(N, __VA_ARGS__)
@@ -141,6 +141,9 @@ int cur_dance(tap_dance_state_t *state) {
 TAP_DANCE_TABLE(TAP_DANCE_FN)
 tap_dance_action_t tap_dance_actions[] = {TAP_DANCE_TABLE(TAP_DANCE_ARR)};
 
+// Utilities for the keymap
+enum { TAP_DANCE_TABLE(X_ENUM) };
+
 // Combo definitions and implementations
 #undef X_NAME
 #define X_NAME(N, ...) COMBO_##N // ##_##B
@@ -148,8 +151,15 @@ tap_dance_action_t tap_dance_actions[] = {TAP_DANCE_TABLE(TAP_DANCE_ARR)};
 #define X_ENUM(N, A, B, C) X_NAME(N, A, B, C),
 #define X_name(N, A, B, C) combo_##N // ##_##B
 #define X_SEQ(N, A, B, C) const uint16_t PROGMEM X_name(N, A, B, C)[] = {A, B, COMBO_END};
+// #define X_SEQ(N, A, B, C) X_SEQ_(N, A, B, C)
 #define X_COMBO(N, A, B, C) [X_NAME(N, A, B, C)] = COMBO(X_name(N, A, B, C), C),
 
 enum combos { COMBOS_TABLE(X_ENUM) };
 COMBOS_TABLE(X_SEQ)
 combo_t key_combos[] = {COMBOS_TABLE(X_COMBO)};
+
+// Key overrides for kyria
+KEY_OVERRIDE_TABLE(X_DEF)
+const key_override_t *key_overrides[] = {
+    KEY_OVERRIDE_TABLE(X_LIST) NULL // Null terminate the array of overrides!
+};
