@@ -16,6 +16,13 @@
                 "HLC_ENCODER": "1",
                 "TARGET": "halcy_enc"
             }
+        ],
+        [
+            "splitkb/kyria/rev3",
+            "indianboy42",
+            {
+                "TARGET": "kyria_rev3"
+            }
         ]
     ]
 }
