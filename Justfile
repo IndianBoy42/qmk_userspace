@@ -1,12 +1,13 @@
 set shell := ["fish", "-c"]
 set positional-arguments
 
-# kb := "splitkb/kyria/rev3"
-kb := "splitkb/halcyon/kyria"
-rev := "rev4"
+kb := "splitkb/kyria"
+# kb := "splitkb/halcyon/kyria"
+rev := "rev3"
 km := "indianboy42"
 # km := "indianboy42_vial"
-args := "-e HLC_CIRQUE_TRACKPAD=1"
+# args := "-e HLC_CIRQUE_TRACKPAD=1"
+args := ""
 
 qmk := "qmk"
 

@@ -37,6 +37,7 @@
 
 // https://github.com/qmk/qmk_firmware/blob/master/docs/tap_hold.md
 #define PERMISSIVE_HOLD
+#define SPECULATIVE_HOLD
 
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
 
@@ -44,7 +45,6 @@
 #define COMBO_TERM 40
 #define COMBO_SHOULD_TRIGGER
 
-#define SPECULATIVE_HOLD
 #define TAPPING_TERM_PER_KEY
 #define TAPPING_TERM 200 // TODO: dynamic tapping term
 #define DOUBLE_TAP_TERM 140
