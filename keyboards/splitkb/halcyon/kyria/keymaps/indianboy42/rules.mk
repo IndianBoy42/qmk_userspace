@@ -1,5 +1,6 @@
 # This adds module functionality to your keyboard (files found in users/halcyon_modules)
 USER_NAME := halcyon_modules
+# Keyboard firmware features
 CAPS_WORD_ENABLE = yes
 FORCE_NKRO = yes
 COMBO_ENABLE = yes
