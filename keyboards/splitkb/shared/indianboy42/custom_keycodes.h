@@ -64,7 +64,7 @@ enum custom_keycodes {
 #define C_SHIFT_DIS(X, A, B)
 #define C_ALT(X, A, B) X(alt_##A##_##B, ko_make_basic(MOD_MASK_ALT, A, B))
 #define KEY_OVERRIDE_TABLE(X)                   \
-    C_SHIFT(X, KC_UNDS, KC_MINS)                \
+    C_SHIFT(X, KC_UNDS, KC_EQL)                 \
     C_SHIFT(X, KC_SLSH, KC_BSLS)                \
     C_SHIFT(X, KC_COMM, KC_AMPR)                \
     C_SHIFT(X, KC_DOT, KC_EXLM)                 \
@@ -72,9 +72,9 @@ enum custom_keycodes {
     C_SHIFT(X, KC_LPRN, KC_RPRN)                \
     C_SHIFT(X, KC_LCBR, KC_RCBR)                \
     C_SHIFT(X, KC_LBRC, KC_RBRC)                \
-    C_SHIFT_(X, TH_LPRN, TD(_TH_LPRN), KC_RPRN) \
-    C_SHIFT_(X, TH_LCBR, TD(_TH_LCBR), KC_RCBR) \
-    C_SHIFT_(X, TH_LBRC, TD(_TH_LBRC), KC_RBRC) \
+    C_SHIFT_(X, TH_PRNS, TD(_TH_PRNS), KC_RPRN) \
+    C_SHIFT_(X, TH_CBRS, TD(_TH_CBRS), KC_RCBR) \
+    C_SHIFT_(X, TH_BRCS, TD(_TH_BRCS), KC_RBRC) \
     C_SHIFT(X, KC_RPRN, KC_LPRN)                \
     C_SHIFT(X, KC_RCBR, KC_LCBR)                \
     C_SHIFT(X, KC_RBRC, KC_LBRC)                \
@@ -88,7 +88,7 @@ enum custom_keycodes {
 #define COMBOS_HR_MOD(X)       \
     X(28, KC_A, KC_S, OS_LCTL) \
     X(29, KC_S, KC_D, OS_LALT) \
-    X(30, KC_D, KC_F, GUI_SPC) \
+    X(30, KC_D, KC_F, GUI_ENT) \
     X(35, KC_J, KC_K, GUI_ESC) \
     X(34, KC_K, KC_L, OS_LALT) \
     X(37, KC_L, KC_SCLN, OS_LCTL)
@@ -106,9 +106,9 @@ enum custom_keycodes {
     X(11, KC_X, KC_C, KC_HASH)      \
     X(11, KC_X, KC_Z, KC_PERC)
 #define COMBOS_TABLE(X)             \
-    X(14, TH_LPRN, KC_A, LR_PRN)    \
-    X(16, TH_LCBR, KC_Z, LR_CBR)    \
-    X(17, TH_LBRC, KC_Q, LR_BRC)    \
+    X(14, TH_PRNS, KC_A, LR_PRN)    \
+    X(16, TH_CBRS, KC_Z, LR_CBR)    \
+    X(17, TH_BRCS, KC_Q, LR_BRC)    \
     X(18, KC_LPRN, KC_A, LR_PRN)    \
     X(20, KC_LCBR, KC_Z, LR_CBR)    \
     X(21, KC_LBRC, KC_Q, LR_BRC)    \

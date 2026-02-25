@@ -47,8 +47,6 @@ enum layers {
 #define _____ KC_TRNS
 #define ______ KC_TRNS
 #define _______ KC_TRNS
-#define LCS(...) LCTL(LSFT(__VA_ARGS__))
-#define LCG(...) LCTL(LGUI(__VA_ARGS__))
 #define MOD_CSA MOD_LCTL | MOD_LSFT | MOD_LALT
 #define KC_LCS C_S_T(OSM(MOD_LCTL | MOD_LSFT))
 #define KC_LCA LCA(KC_NO)
@@ -66,7 +64,7 @@ enum layers {
 
 #define LCA_ENT LCA(KC_ENT)
 #define LCS_DEL LCS(KC_DEL)
-#define LCS_BSP LCS(KC_BSP)
+#define LCS_BSP LCS(KC_BSPC)
 
 // Layer switching aliases
 #define QWERTY DF(_QWERTY)
@@ -162,6 +160,7 @@ enum layers {
 #define CSA_BSP MT(MOD_CSA, KC_BSPC)
 #define CSA_ENT MT(MOD_CSA, KC_ENT)
 #define CSA_DEL MT(MOD_CSA, KC_DEL)
+#define CSA_F1 MT(MOD_CSA, KC_F1)
 #define CSA_F2 MT(MOD_CSA, KC_F2)
 
 // Common key combinations

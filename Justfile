@@ -1,13 +1,14 @@
 set shell := ["fish", "-c"]
 set positional-arguments
 
-kb := "splitkb/kyria"
-# kb := "splitkb/halcyon/kyria"
-rev := "rev3"
+# kb := "splitkb/kyria"
+# rev := "rev3"
+# km := "indianboy42"
+# args := ""
+kb := "splitkb/halcyon/kyria"
+rev := "rev4"
 km := "indianboy42"
-# km := "indianboy42_vial"
-# args := "-e HLC_CIRQUE_TRACKPAD=1"
-args := ""
+args := "-e HLC_CIRQUE_TRACKPAD=1"
 
 qmk := "qmk"
 
@@ -32,6 +33,12 @@ doctor:
 # Compile a keyboard
 compile:
     {{qmk}} compile -kb {{kb}}/{{rev}} -km {{km}}  {{args}}
+
+c2json:
+    {{qmk}} c2json ./keyboards/{{kb}}/keymaps/{{km}}/keymap.c
+
+run cmd:
+    {{qmk}} {{cmd}} -kb {{kb}}/{{rev}} -km {{km}}  {{args}}
 
 edit:
     $EDITOR {{justfile_directory()}}/keyboards/{{kb}}/keymaps/{{km}}/keymap.c

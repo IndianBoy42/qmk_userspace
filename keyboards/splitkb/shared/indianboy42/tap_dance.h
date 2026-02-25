@@ -46,9 +46,14 @@ void tap_dance_multi_reset(tap_dance_state_t *state, void *user_data) {
 }
 
 // Tap dance action definitions
-#define ACTION_TAP_DANCE_MULTI(kc1, kc2) \
-    { .fn = {tap_dance_multi_on_each_tap, tap_dance_multi_finished, tap_dance_multi_reset, NULL}, .user_data = (void *)&((tap_dance_pair_t){kc1, kc2}), }
+#define ACTION_TAP_DANCE_MULTI(kc1, kc2)                                                                   \
+    {                                                                                                      \
+        .fn        = {tap_dance_multi_on_each_tap, tap_dance_multi_finished, tap_dance_multi_reset, NULL}, \
+        .user_data = (void *)&((tap_dance_pair_t){kc1, kc2}),                                              \
+    }
 #define DANCE_DOUBLE_TAP(N, ...) ACTION_TAP_DANCE_DOUBLE(__VA_ARGS__)
+// TODO: make it support custom keycodes
+#define DANCE_DOUBLE_TAP_CUSTOM(N, ...) ACTION_TAP_DANCE_DOUBLE(__VA_ARGS__)
 #define DANCE_MULTI_TAP(N, ...) ACTION_TAP_DANCE_MULTI(__VA_ARGS__)
 #define DTH_MOD(KC) register_mods(MOD_BIT(KC))
 #define DTH_UMOD(KC) unregister_mods(MOD_BIT(KC))
@@ -58,23 +63,24 @@ void tap_dance_multi_reset(tap_dance_state_t *state, void *user_data) {
 
 // Tap dance table definitions
 #define TAP_DANCE_TABLE(X)                                                                        \
-    X(DT_PRN, DANCE_DOUBLE_TAP, NOP, KC_LPRN, LR_PRN)                                             \
-    X(DT_CBR, DANCE_DOUBLE_TAP, NOP, KC_LCBR, LR_CBR)                                             \
-    X(DT_BRC, DANCE_DOUBLE_TAP, NOP, KC_LBRC, LR_BRC)                                             \
-    X(DT_TRI, DANCE_DOUBLE_TAP, NOP, KC_LT, LR_TRI)                                               \
-    X(DT_QUO, DANCE_DOUBLE_TAP, NOP, KC_QUOT, LR_QUO)                                             \
-    X(DT_DQU, DANCE_DOUBLE_TAP, NOP, KC_DQUO, LR_DQU)                                             \
-    X(DT_GRV, DANCE_DOUBLE_TAP, NOP, KC_GRV, LR_GRV)                                              \
+    X(DT_PRNS, DANCE_DOUBLE_TAP, NOP, KC_LPRN, LR_PRN)                                            \
+    X(DT_CBRS, DANCE_DOUBLE_TAP, NOP, KC_LCBR, LR_CBR)                                            \
+    X(DT_BRCS, DANCE_DOUBLE_TAP, NOP, KC_LBRC, LR_BRC)                                            \
+    X(DT_TRIS, DANCE_DOUBLE_TAP, NOP, KC_LT, LR_TRI)                                              \
+    X(DT_QUOS, DANCE_DOUBLE_TAP, NOP, KC_QUOT, LR_QUO)                                            \
+    X(DT_DQUS, DANCE_DOUBLE_TAP, NOP, KC_DQUO, LR_DQU)                                            \
+    X(DT_GRVS, DANCE_DOUBLE_TAP, NOP, KC_GRV, LR_GRV)                                             \
     X(DB_LEFT, DANCE_MULTI_TAP, NOP, KC_LEFT, CC_LEFT)                                            \
     X(DB_RGHT, DANCE_MULTI_TAP, NOP, KC_RIGHT, CC_RIGHT)                                          \
     X(DB_UP, DANCE_MULTI_TAP, NOP, KC_UP, CC_UP)                                                  \
     X(DB_DOWN, DANCE_MULTI_TAP, NOP, KC_DOWN, CC_DOWN)                                            \
+    X(DB_BSPC, DANCE_MULTI_TAP, NOP, KC_BSPC, CC_BSPC)                                            \
     X(CTRL_LP, DANCE_TAP_HOLD, DANCE_TAP_HOLD_FNS, KC_LPRN, DTH_MOD, DTH_UMOD, KC_LCTL)           \
-    X(TH_LPRN, DANCE_TAP_HOLD, DANCE_TAP_HOLD_FNS, KC_LPRN, DTH_SEND, NOP, "()" SS_TAP(X_LEFT))   \
-    X(TH_LBRC, DANCE_TAP_HOLD, DANCE_TAP_HOLD_FNS, KC_LBRC, DTH_SEND, NOP, "[]" SS_TAP(X_LEFT))   \
-    X(TH_LCBR, DANCE_TAP_HOLD, DANCE_TAP_HOLD_FNS, KC_LCBR, DTH_SEND, NOP, "{}" SS_TAP(X_LEFT))   \
-    X(TH_QUOT, DANCE_TAP_HOLD, DANCE_TAP_HOLD_FNS, KC_QUOT, DTH_SEND, NOP, "''" SS_TAP(X_LEFT))   \
-    X(TH_DQUO, DANCE_TAP_HOLD, DANCE_TAP_HOLD_FNS, KC_DQUO, DTH_SEND, NOP, "\"\"" SS_TAP(X_LEFT)) \
+    X(TH_PRNS, DANCE_TAP_HOLD, DANCE_TAP_HOLD_FNS, KC_LPRN, DTH_SEND, NOP, "()" SS_TAP(X_LEFT))   \
+    X(TH_BRCS, DANCE_TAP_HOLD, DANCE_TAP_HOLD_FNS, KC_LBRC, DTH_SEND, NOP, "[]" SS_TAP(X_LEFT))   \
+    X(TH_CBRS, DANCE_TAP_HOLD, DANCE_TAP_HOLD_FNS, KC_LCBR, DTH_SEND, NOP, "{}" SS_TAP(X_LEFT))   \
+    X(TH_QUOS, DANCE_TAP_HOLD, DANCE_TAP_HOLD_FNS, KC_QUOT, DTH_SEND, NOP, "''" SS_TAP(X_LEFT))   \
+    X(TH_DQUS, DANCE_TAP_HOLD, DANCE_TAP_HOLD_FNS, KC_DQUO, DTH_SEND, NOP, "\"\"" SS_TAP(X_LEFT)) \
     X(EQL_H_Q, DANCE_TAP_HOLD, DANCE_TAP_HOLD_FNS, KC_EQL, DTH_SEND, NOP, "q")                    \
     X(UND_H_Z, DANCE_TAP_HOLD, DANCE_TAP_HOLD_FNS, KC_UNDS, DTH_SEND, NOP, "z")
 

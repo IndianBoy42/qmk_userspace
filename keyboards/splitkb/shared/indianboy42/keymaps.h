@@ -27,46 +27,46 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTYP] = LAYOUT_KYRIA(
-     KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
-     KC_LPRN, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                            KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_UNDS,
-     KC_LCBR, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_SPC,  KC_BTN1,     KC_BTN2, KC_BSPC, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_F1,
-                                KC_LGUI, KC_BSPC, KC_LSFT, SYM,     KC_ESC,      KC_LSFT, KC_SPC,  KC_TAB,  KC_DEL,  KC_F2
+     ALT_ESC, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    CTL_BSP,
+     TH_PRNS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                            KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_UNDS,
+     TH_CBRS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    TH_BRCS, MS_BTN1,     MS_BTN2, TH_QUOS, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_EQL,
+                                KC_LGUI, FUN_BSP, KC_LSFT, SYM,     CTL_SPC,     SFT_ENT, NAV_SPC, ALT_TAB, SYM_DEL, CSA_F2
     ),
 
     [_QWERTY] = LAYOUT_KYRIA(
-     TH_LBRC, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT,
-     TH_LPRN, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                            KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_UNDS,
-     TH_LCBR, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    ALT_SPC, KC_BTN1,     KC_BTN2, CTL_BSP, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_EQL,
-                                KC_LGUI, FUN_BSP, KC_LSFT, SYM,     CTL_ESC,     SFT_ENT, NAV_SPC, ALT_TAB, SYM_DEL, CSA_F2
+     TH_BRCS, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                                            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_QUOT,
+     TH_PRNS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                                            KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_UNDS,
+     TH_CBRS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    ALT_SPC, MS_BTN1,     MS_BTN2, CTL_BSP, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_MINS,
+                                KC_LGUI, FUN_BSP, KC_LSFT, SYM,     CTL_ESC,     SFT_ENT, NAV_SPC, ALT_TAB, SYM_DEL, CSA_F1
     ),
 
     [_SYM] = LAYOUT_KYRIA(
-     KC_RBRC, KC_TILD, KC_PLUS, KC_EXLM, KC_LT,   KC_GT,                                           KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_ERRW,
+     KC_RBRC, KC_TILD, KC_PLUS, KC_EXLM, KC_LT,   KC_GT,                                           KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_AT,
      KC_RPRN, KC_CIRC, KC_ASTR, KC_AMPR, KC_EQL,  KC_DLR,                                          KC_QUOT, KC_DQUO, KC_QUES, KC_BSLS, KC_COLN, KC_MINS,
-     KC_RCBR, KC_GRV,  KC_PERC, KC_HASH, KC_PIPE, KC_ARRW, KC_LALT, _______,     _______, _______, KC_0,    KC_6,    KC_7,    KC_8,    KC_9,    KC_AT,
-                                _______, _______, UNUSABL, _______, UNUSABL,     LCA_ENT, KC_SPC, _______, LCS_DEL,  _______
+     KC_RCBR, KC_GRV,  KC_PERC, KC_HASH, KC_PIPE, KC_ARRW, KC_LALT, _______,     _______, TH_DQUS, KC_0,    KC_6,    KC_7,    KC_8,    KC_9,    KC_ERRW,
+                                _______, LCS_BSP, KC_SPC,  _______, UNUSABL,     LCA_ENT, KC_SPC,  _______, LCS_DEL,  _______
     ),
 
     // TODO: more over here
     [_NAV] = LAYOUT_KYRIA(
-     KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                                           KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_PSCR, UNASSIN,
+     KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                                           KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_PSCR, KC_DEL,
      _____,   OS_LGUI, OS_LALT, OS_LCTL, OS_LSFT, OS_CSA,                                          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, UNASSIN, UNASSIN,
-     _____,   KC_UNDO, KC_REDO, UNASSIN, KC_INS,  UNASSIN, _______, _______,     _______, KC_LCTL, KC_ESC,  KC_BSPC, KC_ENT,  KC_TAB,  KC_DEL,  UNASSIN,
+     _____,   KC_UNDO, KC_REDO, UNASSIN, KC_INS,  UNASSIN, _______, _______,     _______, KC_LCTL, KC_BSPC,  KC_SPC, KC_ENT,  KC_TAB,  KC_DEL,  UNASSIN,
                                 _______, _______, _______, KC_LALT, _______,     _______, _______, _______, _______, _______
     ),
 
     [_SYMR] = LAYOUT_KYRIA(
-     KC_GRV,  KC_TILD, KC_PLUS, KC_EXLM, KC_LT,   KC_GT,                                           KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_BSPC,
-     KC_RPRN, KC_LBRC, KC_ASTR, KC_PIPE, KC_EQL,  KC_ARRW,                                         KC_ERRW, KC_DQUO, KC_QUES, KC_BSLS, KC_COLN, KC_MINS,
-     KC_RCBR, KC_CIRC, UNASSIN, KC_HASH, KC_AMPR, KC_DLR,  _______, _______,     _______, _______, KC_0,    KC_6,    KC_7,    KC_8,    KC_9,    TH_DQUO,
-                                _______, _______, _______, KC_SPC,  _______,     _______, _______, _______, _______, _______
+     KC_RBRC, KC_TILD, KC_PLUS, KC_EXLM, KC_LT,   KC_GT,                                           KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_AT,
+     KC_RPRN, KC_CIRC, KC_ASTR, KC_AMPR, KC_EQL,  KC_DLR,                                          KC_QUOT, KC_DQUO, KC_QUES, KC_BSLS, KC_COLN, KC_MINS,
+     KC_RCBR, KC_GRV,  KC_PERC, KC_HASH, KC_PIPE, KC_ARRW, KC_LALT, _______,     _______, TH_DQUS, KC_0,    KC_6,    KC_7,    KC_8,    KC_9,    KC_ERRW,
+                                _______, LCS_DEL, KC_SPC,  _______, UNUSABL,     LCA_ENT, KC_SPC,  _______, _______,  _______
     ),
 
     [_SYM3] = LAYOUT_KYRIA(
-     KC_RBRC, KC_1   , KC_2   , KC_3,    KC_4 ,   KC_5,                                            KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_AT,
-     KC_RPRN, KC_CIRC, KC_ASTR, KC_PIPE, KC_EQL,  KC_DLR,                                          KC_QUOT, KC_DQUO, KC_QUES, KC_BSLS, KC_COLN, KC_MINS,
-     KC_RCBR, KC_GRV,  KC_PERC, KC_HASH, KC_AMPR, KC_ARRW, KC_LALT,  _______,    _______, _______, KC_TILD, KC_PLUS, KC_EXLM, KC_LT,   KC_GT,   KC_SLSH,
-                                _______, _______, UNUSABL, _______, UNUSABL,     LCA_ENT, KC_SPC, _______, LCS_DEL,  _______
+     KC_RBRC, KC_TILD, KC_PLUS, KC_EXLM, KC_LT,   KC_GT,                                           KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_AT,
+     KC_RPRN, KC_CIRC, KC_ASTR, KC_AMPR, KC_EQL,  KC_DLR,                                          KC_QUOT, KC_DQUO, KC_QUES, KC_BSLS, KC_COLN, KC_MINS,
+     KC_RCBR, KC_GRV,  KC_PERC, KC_HASH, KC_PIPE, KC_ARRW, KC_LALT, _______,     _______, _______, KC_0,    KC_6,    KC_7,    KC_8,    KC_9,    KC_ERRW,
+                                _______, _______, KC_SPC,  _______, UNUSABL,     LCA_ENT, KC_SPC, _______, LCS_DEL,  _______
     ),
 
     [_NUM] = LAYOUT_KYRIA(
@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_HANDDOWNN] = LAYOUT_KYRIA(
      NUM_ESC, KC_W,    KC_G,    KC_M,    KC_P,    KC_V,                                            KC_EQL,  KC_COMM, KC_DOT,  KC_QUOT, KC_UNDS, KC_BSPC,
      KC_LPRN, KC_R,    KC_S,    KC_N,    KC_T,    KC_B,                                            KC_SCLN, KC_A,    KC_E,    KC_I,    KC_H,    KC_J,
-     KC_LCBR, KC_X,    KC_C,    KC_L,    KC_D,    KC_F,    ALT_BSP, _______,     _______, CTL_DEL, KC_SLSH, KC_U,    KC_O,    KC_Y,    KC_K,    FKEYS,
+     KC_LCBR, KC_X,    KC_C,    KC_L,    KC_D,    KC_F,    ALT_988M   │   ┌── lm_studio.appimage                 │█▒▒▒▒▒▒▒             │   1%BSP, _______,     _______, CTL_DEL, KC_SLSH, KC_U,    KC_O,    KC_Y,    KC_K,    FKEYS,
                                 KC_LGUI, NAV_TAB, KC_LSFT, SYM,    CTL_ESC,      SFT_ENT, NAV_SPC, ALT_TAB, CSA_BSP, KC_ENT
     ),
     [_HANDDOWNR] = LAYOUT_KYRIA(
@@ -115,8 +115,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_FUNCTION] = LAYOUT_KYRIA(
      QK_BOOT, KC_PAUS, KC_MPLY, KC_MNXT, KC_MPRV, MINCRFT,                                         KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   QK_BOOT,
      _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, HANDDWN,                                         KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_PSCR,
-     KC_CSA,  KC_F21,  KC_F22,  KC_F23,  KC_F24,  QWERTY,  RGB_TOG, _______,     _______, KC_MUTE, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  _______,
-                                KC_NUM,  KC_CAPS, KC_SCRL, RGB_MOD, KC_F16,      KC_F17,  _______, KC_F18,  KC_F19,  KC_F20
+     _______, KC_F21,  KC_F22,  KC_F23,  KC_F24,  QWERTY,  UG_TOGG, _______,     _______, KC_MUTE, KC_F11,  KC_F12,  KC_F13,  KC_F14,  KC_F15,  KC_CAPS,
+                                KC_NUM,  _______, KC_SCRL, UG_NEXT, KC_F16,      KC_F17,  KC_F18, KC_F19,  KC_F20,  KC_CSA
     )
 
 //     [_LAYERINDEX] = LAYOUT_KYRIA(
