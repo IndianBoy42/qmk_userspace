@@ -14,14 +14,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "../../../../shared/indianboy42/common.h"
-#include "../../../../shared/indianboy42/custom_keycodes.h"
-#include "../../../../shared/indianboy42/tap_dance.h"
-// Use Halcyon layout macro for this keyboard
-#include "../../../../shared/indianboy42/layout.h"
-#undef LAYOUT_KYRIA
-#define LAYOUT_KYRIA LAYOUT_KYRIA_HALCYON
-#include "../../../../shared/indianboy42/keymaps.h"
+#define LAYOUT_UNIV LAYOUT_KYRIA_HALCYON
+#include "shared/indianboy42/common.h"
+#include "shared/indianboy42/custom_keycodes.h"
+#include "shared/indianboy42/tap_dance.h"
+#include "shared/indianboy42/keymaps.h"
 
 // Pointing device functionality
 void drag_scroll(report_mouse_t *mouse_report) {

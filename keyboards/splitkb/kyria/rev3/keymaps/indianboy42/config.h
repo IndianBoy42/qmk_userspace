@@ -16,4 +16,4 @@
 
 #pragma once
 
-#include "../../../../shared/indianboy42/config.h"
+#include "shared/indianboy42/config.h"

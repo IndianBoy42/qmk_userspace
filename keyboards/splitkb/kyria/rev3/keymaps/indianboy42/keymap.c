@@ -14,11 +14,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "../../../../shared/indianboy42/common.h"
-#include "../../../../shared/indianboy42/custom_keycodes.h"
-#include "../../../../shared/indianboy42/tap_dance.h"
-#include "../../../../shared/indianboy42/layout.h"
-#include "../../../../shared/indianboy42/keymaps.h"
+#define LAYOUT_UNIV LAYOUT_KYRIA
+#include "shared/indianboy42/common.h"
+#include "shared/indianboy42/custom_keycodes.h"
+#include "shared/indianboy42/tap_dance.h"
+#include "shared/indianboy42/keymaps.h"
 
 // Encoder functionality
 #ifdef ENCODER_ENABLE
