@@ -37,7 +37,7 @@
      CBR, Z,    X,    C,    V,    B,    ALT, BTN1, BTN2, BSP, N,    M, COM, DOT,  SLS, MIN, \
                      LGUI, ALT_BSP, LSFT, SYM, CTL, ENT, SPC, TAB, DEL, CSA, \
                                 KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO)
-#define LAYOUT_CRKBD_V4( \
+#define LAYOUT_CRKBD_V4_1( \
      ESC, Q,    W,    E,    R,    T,                          Y,    U,    I,    O,    P,    QUO, \
      PRN, A,    S,    D,    F,    G,                          H,    J,    K,    L,    SCL, UND, \
      CBR, Z,    X,    C,    V,    B,    ALT, BTN1, BTN2, BSP, N,    M, COM, DOT,  SLS, MIN, \
@@ -46,5 +46,14 @@
      PRN, A,    S,    D,    F,    G,   ALT,  BSP,  H,    J,    K,    L,    SCL, UND, \
      CBR, Z,    X,    C,    V,    B,               N,    M, COM, DOT,  SLS, MIN, \
                       LSFT, SYM, CTL,             ENT, SPC, TAB)
+#define LAYOUT_CRKBD_V4( \
+     ESC, Q,    W,    E,    R,    T,                          Y,    U,    I,    O,    P,    QUO, \
+     PRN, A,    S,    D,    F,    G,                          H,    J,    K,    L,    SCL, UND, \
+     CBR, Z,    X,    C,    V,    B,    ALT, BTN1, BTN2, BSP, N,    M, COM, DOT,  SLS, MIN, \
+                     LGUI, ALT_BSP, LSFT, SYM, CTL, ENT, SPC, TAB, DEL, CSA ) LAYOUT_split_3x6_3_ex2( \
+     ESC, Q,    W,    E,    R,    T,   ALT, BSP,  Y,    U,    I,    O,    P,   QUO, \
+     PRN, A,    S,    D,    F,    G,   CTL, ENT,  H,    J,    K,    L,    SCL, UND, \
+     CBR, Z,    X,    C,    V,    B,               N,    M, COM, DOT,  SLS, MIN, \
+                      LGUI, LSFT, SYM,             SPC, TAB, CSA)
 
 // clang-format on
