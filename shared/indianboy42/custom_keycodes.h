@@ -87,10 +87,10 @@ enum custom_keycodes {
 // Combo definitions
 #define COMBOS_HR_MOD(X)       \
     X(28, KC_A, KC_S, OS_LCTL) \
-    X(29, KC_S, KC_D, OS_LALT) \
+    X(29, KC_S, KC_D, ALT_DEL) \
     X(30, KC_D, KC_F, GUI_ENT) \
     X(35, KC_J, KC_K, GUI_ESC) \
-    X(34, KC_K, KC_L, OS_LALT) \
+    X(34, KC_K, KC_L, ALT_BSP) \
     X(37, KC_L, KC_SCLN, OS_LCTL)
 #define COMBOS_HR_SYM(X)            \
     X(28, KC_A, KC_S, KC_ASTR)      \
